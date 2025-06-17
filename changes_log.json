@@ -1,0 +1,217 @@
+[
+    {
+        "type": "Duplicate Found",
+        "reason": "Email",
+        "source": {
+            "_id": "qest38238jdsnfsj23",
+            "email": "foo@bar.com",
+            "firstName": "John",
+            "lastName": "Smith",
+            "address": "123 Street St",
+            "entryDate": "2014-05-07T17:32:20+00:00"
+        },
+        "existing": {
+            "_id": "wuj08238jdsnfsj23",
+            "email": "foo@bar.com",
+            "firstName": "Micah",
+            "lastName": "Valmer",
+            "address": "123 Street St",
+            "entryDate": "2014-05-07T17:33:20+00:00"
+        },
+        "changes": [
+            {
+                "field": "_id",
+                "from": "wuj08238jdsnfsj23",
+                "to": "qest38238jdsnfsj23"
+            },
+            {
+                "field": "firstName",
+                "from": "Micah",
+                "to": "John"
+            },
+            {
+                "field": "lastName",
+                "from": "Valmer",
+                "to": "Smith"
+            },
+            {
+                "field": "entryDate",
+                "from": "2014-05-07T17:33:20+00:00",
+                "to": "2014-05-07T17:32:20+00:00"
+            }
+        ]
+    },
+    {
+        "type": "Duplicate Found",
+        "reason": "Email",
+        "source": {
+            "_id": "sel045238jdsnfsj23",
+            "email": "foo@bar.com",
+            "firstName": "John",
+            "lastName": "Smith",
+            "address": "123 Street St",
+            "entryDate": "2014-05-07T17:32:20+00:00"
+        },
+        "existing": {
+            "_id": "wuj08238jdsnfsj23",
+            "email": "foo@bar.com",
+            "firstName": "Micah",
+            "lastName": "Valmer",
+            "address": "123 Street St",
+            "entryDate": "2014-05-07T17:33:20+00:00"
+        },
+        "changes": [
+            {
+                "field": "_id",
+                "from": "wuj08238jdsnfsj23",
+                "to": "sel045238jdsnfsj23"
+            },
+            {
+                "field": "firstName",
+                "from": "Micah",
+                "to": "John"
+            },
+            {
+                "field": "lastName",
+                "from": "Valmer",
+                "to": "Smith"
+            },
+            {
+                "field": "entryDate",
+                "from": "2014-05-07T17:33:20+00:00",
+                "to": "2014-05-07T17:32:20+00:00"
+            }
+        ]
+    },
+    {
+        "type": "Duplicate Found",
+        "reason": "ID",
+        "source": {
+            "_id": "jkj238238jdsnfsj23",
+            "email": "coo@bar.com",
+            "firstName": "Ted",
+            "lastName": "Jones",
+            "address": "456 Neat St",
+            "entryDate": "2014-05-07T17:32:20+00:00"
+        },
+        "existing": {
+            "_id": "jkj238238jdsnfsj23",
+            "email": "bill@bar.com",
+            "firstName": "John",
+            "lastName": "Smith",
+            "address": "888 Mayberry St",
+            "entryDate": "2014-05-07T17:33:20+00:00"
+        },
+        "changes": [
+            {
+                "field": "email",
+                "from": "bill@bar.com",
+                "to": "coo@bar.com"
+            },
+            {
+                "field": "firstName",
+                "from": "John",
+                "to": "Ted"
+            },
+            {
+                "field": "lastName",
+                "from": "Smith",
+                "to": "Jones"
+            },
+            {
+                "field": "address",
+                "from": "888 Mayberry St",
+                "to": "456 Neat St"
+            },
+            {
+                "field": "entryDate",
+                "from": "2014-05-07T17:33:20+00:00",
+                "to": "2014-05-07T17:32:20+00:00"
+            }
+        ]
+    },
+    {
+        "type": "Duplicate Found",
+        "reason": "Email",
+        "source": {
+            "_id": "edu45238jdsnfsj23",
+            "email": "mae@bar.com",
+            "firstName": "Ted",
+            "lastName": "Masters",
+            "address": "44 North Hampton St",
+            "entryDate": "2014-05-07T17:31:20+00:00"
+        },
+        "existing": {
+            "_id": "belr28238jdsnfsj23",
+            "email": "mae@bar.com",
+            "firstName": "Tallulah",
+            "lastName": "Smith",
+            "address": "123 Water St",
+            "entryDate": "2014-05-07T17:33:20+00:00"
+        },
+        "changes": [
+            {
+                "field": "_id",
+                "from": "belr28238jdsnfsj23",
+                "to": "edu45238jdsnfsj23"
+            },
+            {
+                "field": "firstName",
+                "from": "Tallulah",
+                "to": "Ted"
+            },
+            {
+                "field": "lastName",
+                "from": "Smith",
+                "to": "Masters"
+            },
+            {
+                "field": "address",
+                "from": "123 Water St",
+                "to": "44 North Hampton St"
+            },
+            {
+                "field": "entryDate",
+                "from": "2014-05-07T17:33:20+00:00",
+                "to": "2014-05-07T17:31:20+00:00"
+            }
+        ]
+    },
+    {
+        "type": "Duplicate Found",
+        "reason": "ID",
+        "source": {
+            "_id": "jkj238238jdsnfsj23",
+            "email": "foo@bar.com",
+            "firstName": "John",
+            "lastName": "Smith",
+            "address": "123 Street St",
+            "entryDate": "2014-05-07T17:30:20+00:00"
+        },
+        "existing": {
+            "_id": "jkj238238jdsnfsj23",
+            "email": "bill@bar.com",
+            "firstName": "John",
+            "lastName": "Smith",
+            "address": "888 Mayberry St",
+            "entryDate": "2014-05-07T17:33:20+00:00"
+        },
+        "changes": [
+            {
+                "field": "email",
+                "from": "bill@bar.com",
+                "to": "foo@bar.com"
+            },
+            {
+                "field": "address",
+                "from": "888 Mayberry St",
+                "to": "123 Street St"
+            },
+            {
+                "field": "entryDate",
+                "from": "2014-05-07T17:33:20+00:00",
+                "to": "2014-05-07T17:30:20+00:00"
+            }
+        ]
+    }
+]

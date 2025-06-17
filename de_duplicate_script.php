@@ -7,9 +7,11 @@ $data = json_decode($jsonData, true);
 // Initialize arrays for tracking
 $processedLeads = [];
 $changesLog = [];
+$processedIds = [];
+$processedEmails = [];
 
 // Sort leads by entryDate in descending order (newest first)
-usort($data['leads'], function($a, $b) {
+usort($data['leads'], function ($a, $b) {
     return strtotime($b['entryDate']) - strtotime($a['entryDate']);
 });
 
@@ -17,49 +19,47 @@ usort($data['leads'], function($a, $b) {
 foreach ($data['leads'] as $lead) {
     $id = $lead['_id'];
     $email = $lead['email'];
-    
-    // Check if we already have a record with this ID or email
-    $isDuplicate = false;
-    $duplicateReason = '';
-    
-    foreach ($processedLeads as $key => $processedLead) {
-        if ($processedLead['_id'] === $id) {
-            $isDuplicate = true;
-            $duplicateReason = 'ID';
-            $duplicateKey = $key;
-            break;
-        }
-        if ($processedLead['email'] === $email) {
-            $isDuplicate = true;
-            $duplicateReason = 'Email';
-            $duplicateKey = $key;
-            break;
-        }
+
+    // Check for duplicates using associative arrays for faster lookups
+    $duplicateKey = null;
+    $duplicateReason = null;
+
+    if (isset($processedIds[$id])) {
+        $duplicateKey = $processedIds[$id];
+        $duplicateReason = 'ID';
+    } elseif (isset($processedEmails[$email])) {
+        $duplicateKey = $processedEmails[$email];
+        $duplicateReason = 'Email';
     }
-    
-    if ($isDuplicate) {
+
+    if ($duplicateKey !== null) {
         // Log the change
-        $changesLog[] = [
-            'type' => 'Duplicate Found',
-            'reason' => $duplicateReason,
-            'source' => $lead,
-            'existing' => $processedLeads[$duplicateKey],
-            'changes' => []
-        ];
-        
+        $existingLead = $processedLeads[$duplicateKey];
+        $changes = [];
+
         // Compare fields and log changes
         foreach ($lead as $field => $value) {
-            if ($lead[$field] !== $processedLeads[$duplicateKey][$field]) {
-                $changesLog[count($changesLog) - 1]['changes'][] = [
+            if ($value !== $existingLead[$field]) {
+                $changes[] = [
                     'field' => $field,
-                    'from' => $processedLeads[$duplicateKey][$field],
+                    'from' => $existingLead[$field],
                     'to' => $value
                 ];
             }
         }
+
+        $changesLog[] = [
+            'type' => 'Duplicate Found',
+            'reason' => $duplicateReason,
+            'source' => $lead,
+            'existing' => $existingLead,
+            'changes' => $changes
+        ];
     } else {
         // Add new lead to processed leads
         $processedLeads[] = $lead;
+        $processedIds[$id] = count($processedLeads) - 1;
+        $processedEmails[$email] = count($processedLeads) - 1;
     }
 }
 
